@@ -2,6 +2,12 @@
 
 这个仓库包含多套可直接修改的 Typst 简历模板，并保留对应的 PDF 与预览图。
 
+**推荐：直接使用VS Code + `Tinymist Typst`插件**
+![VS Code Tinymist 插件](asset/image.png)
+之后打开 typ 文件会自动出现：
+![Typst 预览入口](asset/image-1.png)
+主要功能其实也就这些。
+
 ## 文档目录
 
 - [目录结构](#目录结构)
@@ -9,9 +15,7 @@
 - [预览](#预览)
 - [快速使用](#快速使用)
 - [依赖安装](#依赖安装)
-- [进阶](#进阶)
 - [常见问题](#常见问题)
-- [说明](#说明)
 - [致谢](#致谢)
 
 ## 目录结构
@@ -19,6 +23,7 @@
 ```text
 Typst-resume-template/
 ├─ typ/      模板文件（直接改这里）
+├─ asset/    README 截图
 ├─ images/   预览图与头像图片（可选）
 ├─ pdf/      导出的 PDF
 └─ README.md
@@ -124,8 +129,6 @@ brew install typst
 cargo install --locked typst-cli
 ```
 
-**推荐：直接使用VS Code + `Tinymist Typst`插件**
-
 ### 2) 字体下载与安装
 
 - 为了减少环境差异，模板都设置了字体回退列表；若你已安装对应字体，显示会更接近参考项目。
@@ -174,27 +177,6 @@ fc-cache -f -v
 ```bash
 # 需要 TeX Live
 tlmgr install kpfonts
-```
-
-## 进阶
-
-### 1) 仓库内安装 Tinymist
-
-适合不想改系统环境，或在受限环境（如部分 Snap 会话）里使用：
-
-```bash
-mkdir -p .local/bin .local/config
-curl --proto '=https' --tlsv1.2 -LsSf \
-  https://github.com/Myriad-Dreamin/tinymist/releases/latest/download/tinymist-installer.sh \
-  | XDG_BIN_HOME="$(pwd)/.local/bin" \
-    XDG_CONFIG_HOME="$(pwd)/.local/config" \
-    TINYMIST_NO_MODIFY_PATH=1 sh
-```
-
-### 2) 可选：为当前终端会话设置 PATH
-
-```bash
-export PATH="$(pwd)/.local/bin:$PATH"
 ```
 
 ## 常见问题
