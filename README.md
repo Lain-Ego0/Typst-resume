@@ -1,6 +1,6 @@
 # Typst 中文简历模板库
 
-这个仓库包含多套可直接修改的 Typst 简历模板，并提供 PDF 导出与图片转换脚本。
+这个仓库包含多套可直接修改的 Typst 简历模板，并保留对应的 PDF 与预览图。
 
 ## 文档目录
 
@@ -19,9 +19,8 @@
 ```text
 Typst-resume-template/
 ├─ typ/      模板文件（直接改这里）
-├─ tool/     工具脚本（PDF 导出 / PDF 转图片 / 一键全流程）
-├─ images/   头像图片（可选）
-├─ pdf/      导出的 PDF（建议输出到这里）
+├─ images/   预览图与头像图片（可选）
+├─ pdf/      导出的 PDF
 └─ README.md
 ```
 
@@ -32,11 +31,7 @@ Typst-resume-template/
 - `typ/no_profile_picture.typ`
 - `typ/with_profile_picture.typ`
 - `typ/resume_classic_with_photo.typ`
-- `typ/sidebar_tech_blue.typ`
 - `typ/minimal_ats.typ`
-- `typ/color_cards.typ`
-- `typ/newspaper_two_column.typ`
-- `typ/ribbon_section_blocks.typ`
 - `typ/bracket_index_titles.typ`
 - `typ/split_banner_titles.typ`
 - `typ/side_label_titles.typ`
@@ -44,11 +39,8 @@ Typst-resume-template/
 ### B. 扩展模板
 
 - `typ/ref_golixp_resume_zh_cn.typ`
-- `typ/ref_typst_project_rw1SLr0IIZZnCrkrsypRQF.typ`
 - `typ/ref_uniquecv_typst.typ`
 - `typ/ref_typst_cv_miku.typ`
-- `typ/ref_alta_typst.typ`
-- `typ/ref_attractive_typst_resume.typ`
 - `typ/ref_moderncv_typst.typ`
 - `typ/ref_resume_typ.typ`
 - `typ/ref_chicv.typ`
@@ -63,18 +55,10 @@ Typst-resume-template/
 
 <p>
   <a href="images/bracket_index_titles_page_1.png"><img src="images/bracket_index_titles_page_1.png" alt="bracket_index_titles" width="48%" /></a>
-  <a href="images/color_cards_page_1.png"><img src="images/color_cards_page_1.png" alt="color_cards" width="48%" /></a>
-</p>
-<p>
   <a href="images/minimal_ats_page_1.png"><img src="images/minimal_ats_page_1.png" alt="minimal_ats" width="48%" /></a>
-  <a href="images/newspaper_two_column_page_1.png"><img src="images/newspaper_two_column_page_1.png" alt="newspaper_two_column" width="48%" /></a>
 </p>
 <p>
   <a href="images/no_profile_picture_page_1.png"><img src="images/no_profile_picture_page_1.png" alt="no_profile_picture" width="48%" /></a>
-  <a href="images/ref_alta_typst_page_1.png"><img src="images/ref_alta_typst_page_1.png" alt="ref_alta_typst" width="48%" /></a>
-</p>
-<p>
-  <a href="images/ref_attractive_typst_resume_page_1.png"><img src="images/ref_attractive_typst_resume_page_1.png" alt="ref_attractive_typst_resume" width="48%" /></a>
   <a href="images/ref_bamboovir_typst_resume_template_page_1.png"><img src="images/ref_bamboovir_typst_resume_template_page_1.png" alt="ref_bamboovir_typst_resume_template" width="48%" /></a>
 </p>
 <p>
@@ -91,14 +75,10 @@ Typst-resume-template/
 </p>
 <p>
   <a href="images/ref_typst_cv_miku_page_1.png"><img src="images/ref_typst_cv_miku_page_1.png" alt="ref_typst_cv_miku" width="48%" /></a>
-  <a href="images/ref_typst_project_rw1SLr0IIZZnCrkrsypRQF_page_1.png"><img src="images/ref_typst_project_rw1SLr0IIZZnCrkrsypRQF_page_1.png" alt="ref_typst_project_rw1SLr0IIZZnCrkrsypRQF" width="48%" /></a>
-</p>
-<p>
   <a href="images/ref_uniquecv_typst_page_1.png"><img src="images/ref_uniquecv_typst_page_1.png" alt="ref_uniquecv_typst" width="48%" /></a>
-  <a href="images/resume_classic_with_photo_page_1.png"><img src="images/resume_classic_with_photo_page_1.png" alt="resume_classic_with_photo" width="48%" /></a>
 </p>
 <p>
-  <a href="images/sidebar_tech_blue_page_1.png"><img src="images/sidebar_tech_blue_page_1.png" alt="sidebar_tech_blue" width="48%" /></a>
+  <a href="images/resume_classic_with_photo_page_1.png"><img src="images/resume_classic_with_photo_page_1.png" alt="resume_classic_with_photo" width="48%" /></a>
   <a href="images/side_label_titles_page_1.png"><img src="images/side_label_titles_page_1.png" alt="side_label_titles" width="48%" /></a>
 </p>
 <p>
@@ -110,22 +90,7 @@ Typst-resume-template/
 
 1. 打开任意 `typ/*.typ` 文件。
 2. 替换姓名、电话、邮箱、教育/项目经历。
-3. 导出 PDF。
-
-### 一键导出
-
-项目已提供脚本：`tool/export_pdf.sh`
-
-```bash
-# 导出 typ/ 下全部模板到 pdf/
-./tool/export_pdf.sh
-
-# 只导出单个模板（两种写法都支持）
-./tool/export_pdf.sh color_cards.typ
-./tool/export_pdf.sh typ/color_cards.typ
-```
-
-脚本会优先使用 `tinymist compile`，若不可用则自动回退到 `typst compile`。
+3. 使用 Typst 导出 PDF。
 
 示例：
 
@@ -226,52 +191,10 @@ curl --proto '=https' --tlsv1.2 -LsSf \
     TINYMIST_NO_MODIFY_PATH=1 sh
 ```
 
-### 2) 使用本地 Tinymist 一键导出 PDF
-
-```bash
-PATH="$(pwd)/.local/bin:$PATH" ./tool/export_pdf.sh
-```
-
-### 3) PDF 转图片
-
-需要 `pdftoppm`（Linux 通常来自 `poppler-utils` 包）。
-
-```bash
-# 把 pdf/ 下所有 PDF 的第 1 页转成 PNG（默认 200 DPI）
-./tool/pdf_to_images.sh
-
-# 指定分辨率（例如 300 DPI）
-./tool/pdf_to_images.sh -r 300
-
-# 只转换单个 PDF（支持两种写法）
-./tool/pdf_to_images.sh -r 260 no_profile_picture.pdf
-./tool/pdf_to_images.sh -r 260 pdf/no_profile_picture.pdf
-
-# 导出全部页
-./tool/pdf_to_images.sh -a -r 220 with_profile_picture.pdf
-```
-
-### 4) 可选：为当前终端会话设置 PATH
+### 2) 可选：为当前终端会话设置 PATH
 
 ```bash
 export PATH="$(pwd)/.local/bin:$PATH"
-./tool/export_pdf.sh
-```
-
-### 5) 一条命令执行导出 PDF + 转图片
-
-```bash
-# 全部模板 + 全部 PDF 第1页转图
-./tool/run_all.sh
-
-# 自定义图片分辨率
-./tool/run_all.sh -r 300
-
-# 只处理一个模板
-./tool/run_all.sh -r 260 color_cards.typ
-
-# 导出全部页
-./tool/run_all.sh -a -r 220 typ/with_profile_picture.typ
 ```
 
 ## 常见问题
@@ -293,11 +216,8 @@ export PATH="$(pwd)/.local/bin:$PATH"
 ### 参考
 
 - golixp-resume-zh-cn: <https://typst.app/universe/package/golixp-resume-zh-cn/>
-- typst project rw1SLr0IIZZnCrkrsypRQF: <https://typst.app/project/rw1SLr0IIZZnCrkrsypRQF>
 - uniquecv-typst: <https://github.com/gaoachao/uniquecv-typst>
 - typst-cv-miku: <https://github.com/ice-kylin/typst-cv-miku>
-- alta-typst: <https://github.com/GeorgeHoneywood/alta-typst>
-- attractive-typst-resume: <https://github.com/Harkunwar/attractive-typst-resume>
 - moderncv.typst: <https://github.com/giovanniberti/moderncv.typst>
 - resume.typ: <https://github.com/wusyong/resume.typ>
 - chicv: <https://github.com/skyzh/chicv>
